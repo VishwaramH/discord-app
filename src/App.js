@@ -16,6 +16,7 @@ function App() {
     auth.onAuthStateChanged((authUser) => {
       console.log("user is ",authUser);
       if(authUser) {
+        // the user is logged in
         dispatch(
           login({
             uid: authUser.uid,
@@ -23,9 +24,10 @@ function App() {
             photo: authUser.photoURL,
             displayName: authUser.displayName
           })
-        );
+        )
       } else {
-
+        // the user is logged out
+        dispatch(logout());
       }
     });
   }, [dispatch]);
@@ -33,10 +35,10 @@ function App() {
     // BEM naming convention
     <div className="app">
       {user ? (
-        <div>
+        <>
           <Sidebar />
           <Chat />
-        </div>
+        </>
       ) : (
         <Login />
       )}

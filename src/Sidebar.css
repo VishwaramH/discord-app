@@ -3,6 +3,7 @@
   flex-direction: column;
   flex: 0.25;
   height: 100vh;
+  /* overflow-y: scroll; */
   background-color: #2f3135;
 }
 
@@ -17,6 +18,7 @@
 }
 
 .sidebar__channels {
+  overflow-y: scroll;
   flex: 1;
 }
 
